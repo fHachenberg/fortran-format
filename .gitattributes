@@ -1,1 +1,2 @@
-*.rb linguist-language=TXL
+*.txl linguist-language=TXL
+run_examples.sh linguist-vendored
