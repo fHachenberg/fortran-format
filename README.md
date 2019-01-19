@@ -1,6 +1,8 @@
 # fortran-format
 Reformats Fortran code, just like AStyle for C++.
 
+Important: Please note that `fortran-format` is still in an experimental state and thus the interface is likely to change frequently.
+
 ## mission
 
 There was a time when people spent a lot of time arguing about what kind of code style is both readable and easy to use. And they spent a lot of time correcting formatting errors in their and their colleagues' files. With the advent of auto formatters, those times are over fortunately. Today in most languages you can simply reformat all of your codebase uniformly in a matters of seconds.
@@ -25,9 +27,16 @@ To see a list of all available formatting options as well as other arguments, pl
 
 	fortran-format --help
 
+## indentation options
+
+Sources of inspiration:
+
+https://www.vim.org/scripts/script.php?script_id=2299
+
 ## technical details
 	
 - The tools is based on TXL: https://www.txl.ca
 - The Fortran grammar in fortran.grm is a modified version of 
 
 	https://www.txl.ca/examples/Grammars/Fortran/Fortran.tar.gz
+
