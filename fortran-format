@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# require Python 3.6+
+# Check if we are on a debian system
+if [ $(which python3) == "" ]
+then
+    python=python
+else
+    python=python3
+fi
+
+$python fortran-format.py $@
+exit $?

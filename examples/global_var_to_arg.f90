@@ -3,14 +3,14 @@ module m
 ! nach module stmt
 	integer :: a
 	real :: b			
-end module
+end MoDuLe
 ! nach module block
 
 ! zwischen mod und prog
 
 
 ! vor program
-program & ! hohoho
+PROGRAM & ! hohoho
 	global_var_to_arg
 
 	integer :: luo = &
@@ -20,7 +20,7 @@ program & ! hohoho
 
 	write (luo, 100) "hello", &   ! hohoho
 					 5, &
-					 "what the hell" &
+					 "WHAT THE HELL" &
 					  // "not what i wanted"
 
 	contains
@@ -37,5 +37,5 @@ program & ! hohoho
 		1 &
 		* 5
 	end subroutine
-end program
+end program global_var_to_arg
 ! nach program
