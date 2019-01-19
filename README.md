@@ -13,9 +13,9 @@ This tool tries to achieve this new baseline for Fortran.
 	
 ## usage
 
-You have to call `fortran-format` on each individual Fortran code file. You can decide whether you want to write the result to stdout (neither `-o` nor `-i`), provide an output filename (`-o`) or let fortran-format change the file in place (`-i`).
+You can call `fortran-format` on each individual Fortran code file or a list of them (i.e. use glob expression like `*.f90`). `fortran-format` can either write the result (for each file) to stdout (neither `-o` nor `-i`), to a specific output file (`-o`. Only valid if you pass exactly one filename) or change the file(s) in place (`-i`).
 
-	format-format <input file> [-o output file | -i ] [ args ... ]
+	format-format <input files> [-o output file | -i ] [ args ... ]
 
 To see a list of all available formatting options as well as other arguments, please run 
 
