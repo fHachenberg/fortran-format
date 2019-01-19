@@ -8,7 +8,7 @@ This tool tries to achieve this new baseline for Fortran.
 
 ## supported Fortran versions
 
-The parser we use can parse Fortran 90. This already involves a large amount of what is normally used in today's Fortran programms (`TYPE`, `INTENT`, ...). In the future I plan to extend the parser to Fortran 2003 or even 2008.
+The parser definition I currently use can parse Fortran 90. This already involves a large amount of what is normally used in today's Fortran programms (`TYPE`, `INTENT`, ...). In the future I plan to extend the parser to Fortran 2003 or even 2008.
 
 ## install
 
