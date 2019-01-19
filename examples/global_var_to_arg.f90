@@ -20,8 +20,8 @@ program & ! hohoho
 
 	write (luo, 100) "hello", &   ! hohoho
 					 5, &
-					 "what the hell" // &
-					 "not what i wanted"
+					 "what the hell" &
+					  // "not what i wanted"
 
 	contains
 	! vor subroutine
@@ -33,8 +33,9 @@ program & ! hohoho
 		! nach implicit none
 		! vor o
 		integer, intent(out) :: o ! ok
-		o = a + (5 &
-		* 5)	
+		o = a + 5 -&
+		1 &
+		* 5
 	end subroutine
 end program
 ! nach program

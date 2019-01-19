@@ -1283,7 +1283,7 @@ define Primary
   [maybe_conts] [UnsignedArithmeticConstant] 
 | [maybe_conts] [NameDataRef] 
 | [maybe_conts] [FunctionReference] 
-| [maybe_conts] '( [maybe_conts] [Expr] [maybe_conts] ')
+| [maybe_conts] [maybe_conts] '( [maybe_conts] [Expr] [maybe_conts] ')
 end define
 
 % R703
@@ -1320,21 +1320,21 @@ end define
 
 % R708
 define PowerOp
-  '** 
+  [maybe_conts] '** 
 end define
 
 % R709
 define MultOp
-  '* | '/
+  [maybe_conts] '* | [maybe_conts] '/
 end define
 
 % R710
 define AddOp
-  '+ | '- 
+  [maybe_conts] '+ | [maybe_conts] '- 
 end define
 
 define Sign
-  '+ | '- 
+  [maybe_conts] '+ | [maybe_conts] '- 
 end define
 
 define UFExpr
@@ -1399,7 +1399,7 @@ end define
 
 % R712
 define ConcatOp
-  '/ [SPOFF] / [SPON]
+  [maybe_conts] '/ [SPOFF] / [SPON]
 end define
 
 % 84,85
@@ -1438,23 +1438,23 @@ end define
 
 % R719
 define NotOp
-  [SP] '.not. [SP] 
+  [maybe_conts] [SP] '.not. [SP] 
 end define
 
 % R720
 define AndOp
-  [SP] '.and. [SP] 
+  [maybe_conts] [SP] '.and. [SP] 
 end define
 
 % R721
 define OrOp
-  [SP] '.or. [SP]
+  [maybe_conts] [SP] '.or. [SP]
 end define
 
 % R722
 define EquivOp
-  [SP] '.eqv. [SP] 
-| [SP] '.neqv. [SP] 
+  [maybe_conts] [SP] '.eqv. [SP] 
+| [maybe_conts] [SP] '.neqv. [SP] 
 end define
 
 redefine Primary
@@ -1475,12 +1475,12 @@ end define
 % 87
 
 define RelOp
-  [SP] '.eq. [SP] 
-| [SP] '.ne. [SP] 
-| [SP] '.lt. [SP] 
-| [SP] '.le. [SP] 
-| [SP] '.gt. [SP] 
-| [SP] '.ge. [SP] 
+  [maybe_conts] [SP] '.eq. [SP] 
+| [maybe_conts] [SP] '.ne. [SP] 
+| [maybe_conts] [SP] '.lt. [SP] 
+| [maybe_conts] [SP] '.le. [SP] 
+| [maybe_conts] [SP] '.gt. [SP] 
+| [maybe_conts] [SP] '.ge. [SP] 
 end define
 
 % 88
