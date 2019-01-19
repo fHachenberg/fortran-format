@@ -9,7 +9,7 @@ This tool tries to achieve this new baseline for Fortran.
 ## install
 
 - download TXL at https://www.txl.ca/txl-download.html
-- put `bin` dir of TXL installation into your PATH
+- put `bin` dir of TXL installation into your `PATH`
 	
 ## usage
 
