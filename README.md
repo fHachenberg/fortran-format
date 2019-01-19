@@ -17,7 +17,7 @@ The parser definition I currently use can parse Fortran 90. This already involve
 	
 ## usage
 
-You can call `fortran-format` on each individual Fortran code file or a list of them (i.e. use glob expression like `*.f90`). `fortran-format` can either write the result (for each file) to stdout (neither `-o` nor `-i`), to a specific output file (`-o`. Only valid if you pass exactly one filename) or change the file(s) in place (`-i`).
+You can call `fortran-format` on each individual Fortran code file or a list of them (i.e. use glob expression like `*.f90`). `fortran-format` can either write the result (for each file) to stdout (neither `-o` nor `-i`), to a specific output file (`-o`) or change the file(s) in place (`-i`).
 
 	format-format <input files> [-o output file | -i ] [ args ... ]
 
