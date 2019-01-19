@@ -75,10 +75,11 @@ tokens
         %   - for F90, ! to end of line is a comment
         comment        "\n[cC\*]#n*"
                 | "!#n*"
-        % Ignore Fortran continuation syntax
-        %  - in F77, a nonblank character in column 6 marks a contination line
-        %  - in F90, an & in column 6 marks a continuation, and there may 
-        %    also be an & at the end of the previous line
+        % Continuations optionally include a comment until the end of the line
+        % They can currently appear in the front of each options for a
+        % Primary (look for define Primary) which works pretty well. It's
+        % perfectly possible that for real life examples, yet unsupported cases
+        % coulde come up. 
         % Note that continuations in string literals are preserved as part of the literal
         continuation        "& *(!#n*)?\n?"
                 | "\n     # "
@@ -113,6 +114,9 @@ tokens
         Fcon        "[aAbBeEdD([eE][nNsS])qQfFgGiIlLoOzZ][(\d+)\*](.\d+([eEdDqQ]\d+)?)"
 end tokens
 
+% one or more continuations. In reality gfortran does not allow sth. like
+% a = 5 + &\n\&\n1 so the [repeat ...] could very well be substituted for
+% a [opt ...]
 define maybe_conts
 		[repeat continuation]
 end define
