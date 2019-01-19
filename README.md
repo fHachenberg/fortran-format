@@ -6,6 +6,10 @@ Reformats Fortran code, just like AStyle for C++.
 There was a time when people spent a lot of time arguing about what kind of code style is both readable and easy to use. And they spent a lot of time correcting formatting errors in their and their colleagues' files. With the advent of auto formatters, those times are over fortunately. Today in most languages you can simply reformat all of your codebase uniformly in a matters of seconds.
 This tool tries to achieve this new baseline for Fortran.
 
+## supported Fortran versions
+
+The parser we use can parse Fortran 90. This already involves a large amount of what is normally used in today's Fortran programms (`TYPE`, `INTENT`, ...). In the future I plan to extend the parser to Fortran 2003 or even 2008.
+
 ## install
 
 - download TXL at https://www.txl.ca/txl-download.html
