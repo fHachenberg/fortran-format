@@ -114,6 +114,10 @@ tokens
         Fcon        "[aAbBeEdD([eE][nNsS])qQfFgGiIlLoOzZ][(\d+)\*](.\d+([eEdDqQ]\d+)?)"
 end tokens
 
+compounds
+	'::
+end compounds
+
 % one or more continuations. In reality gfortran does not allow sth. like
 % a = 5 + &\n\&\n1 so the [repeat ...] could very well be substituted for
 % a [opt ...]
@@ -136,11 +140,9 @@ define CommentOrNewline
 end define
 
 define program
-  [IN_6]
   [repeat CommentOrNewline]
   [ExecutableProgram]
   [repeat CommentOrNewline]
-  [EX_6]
 end define
 
 % Productions Common to FORTRAN 77 and FORTRAN 90
@@ -176,7 +178,7 @@ define EndProgramStmt
 end define
 
 define Body
-  [repeat BodyConstruct+] 
+  [IN] [repeat BodyConstruct+] [EX]
 end define
 
 define BodyConstruct
@@ -224,7 +226,7 @@ end define
 
 % R1219
 define SubroutineSubprogram
-  [LblDef] 'subroutine [SubroutineName] [SubroutineRange] 
+  [LblDef] 'subroutine [SPOFF][SP][SubroutineName][SubroutineRange]
 end define
 
 define SubroutineRange
@@ -354,7 +356,7 @@ end define
 % *
 
 define SubroutineParList
-  '( [SubroutinePars] ') 
+  '([SPON] [SubroutinePars] ') 
 | [empty]
 end define
 
@@ -1983,7 +1985,7 @@ define AttrSpec
 | 'allocatable 
 | 'dimension '( [ArraySpec] ') 
 | 'external 
-| 'intent '( [IntentSpec] ') 
+| [SPOFF][SP]'intent '( [SPON] [IntentSpec] ')
 | 'intrinsic 
 | 'optional 
 | 'pointer 
@@ -2115,7 +2117,14 @@ define AccessIdList
   [list AccessId+] 
 end define
 
-define AccessId
+define AccessId var x,y,z,m,n := 1
+        if x = y then
+            z :=1
+        elsif x = m then
+            put "hi"
+            k := 3
+        elsif m > n then
+            if m = 5 then
   [GenericName] 
 | [GenericSpec] 
 end define
