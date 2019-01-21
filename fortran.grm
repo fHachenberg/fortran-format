@@ -101,7 +101,7 @@ tokens
         Xcon        "\d+[xX]"
         % Rcons and Dcons overlap anyway, so unify them
         RDcon        "\d+(.\d*)?([eEdD][+-]?\d+)[eEdD]?"
-                | "\d*.\d+([eEdD][+-]?\d+)?[eEdD]?"
+                | "\d*.\d+([eEdD][+-]?\d+)?[eEdD]?(_\c+)?"
                 | "\d+.[eEdD]?#\:\a"        % Note disambiguating lookahead restriction to avoid eating .op.
         Icon        "\d+"
         Scon        "'[('')#']*'" 
@@ -264,7 +264,7 @@ define SpecificationStmt
 | [EquivalenceStmt] 
 | [ExternalStmt] 
 | [IntrinsicStmt] 
-| [SaveStmt] 
+| [SaveStmt] 	
 end define
 
 % 7
@@ -2114,16 +2114,9 @@ define AccessIdList
   [list AccessId+] 
 end define
 
-define AccessId var x,y,z,m,n := 1
-        if x = y then
-            z :=1
-        elsif x = m then
-            put "hi"
-            k := 3
-        elsif m > n then
-            if m = 5 then
-  [GenericName] 
-| [GenericSpec] 
+define AccessId 
+  [maybe_conts] [GenericName] [maybe_conts]
+| [maybe_conts] [GenericSpec] [maybe_conts]
 end define
 
 % R523 see 26
