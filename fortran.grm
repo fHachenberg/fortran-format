@@ -70,11 +70,9 @@
 
 % Comments 
 tokens
-        % F77 and F90 comment conventions
-        %   - for F77, C or * in column 1 begins a line comment
+        % F90 comment conventions
         %   - for F90, ! to end of line is a comment
-        comment        "\n[cC\*]#n*"
-                | "!#n*"
+        comment  "!#n*"
         % Continuations optionally include a comment until the end of the line
         % They can currently appear in the front of each options for a
         % Primary (look for define Primary) which works pretty well. It's
@@ -82,7 +80,6 @@ tokens
         % coulde come up. 
         % Note that continuations in string literals are preserved as part of the literal
         continuation        "& *(!#n*)?\n?"
-                | "\n     # "
 end tokens
 
 % Lexical classes 
